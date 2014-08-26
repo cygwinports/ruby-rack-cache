@@ -2,9 +2,16 @@ inherit rubygem
 
 NAME="ruby-rack-cache"
 VERSION=1.2
-RELEASE=1
+RELEASE=2
 CATEGORY="Ruby"
 SUMMARY="Ruby Rack cache extension"
 DESCRIPTION="Rack::Cache is suitable as a quick drop-in component to enable
 HTTP caching for Rack-based applications that produce freshness (Expires,
 Cache-Control) and/or validation (Last-Modified, ETag) information."
+
+ARCH=noarch
+
+PKG_NAMES="${NAME} ${NAME}-doc"
+ruby_rack_cache_CONTENTS="--exclude=example ${RUBYGEM_INSTDIR#/} ${RUBYGEM_SPEC#/}"
+ruby_rack_cache_doc_CONTENTS="${RUBYGEM_DOCDIR#/} ${RUBYGEM_INSTDIR#/}/example/"
+
